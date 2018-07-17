@@ -1,0 +1,36 @@
+import sas.*;
+import sasio.*;
+import java.awt.Color;
+
+public class Spieler {
+  
+  // Anfang Attribute
+  private Rectangle körper;
+  // Ende Attribute
+  
+  // Anfang Methoden
+  public Spieler(double x, double y){
+    körper = new Rectangle(x,y,20,20); 
+    
+    
+    
+    
+  } 
+  public void rechts() {
+    körper.setDirection(90);
+    körper.move(5);
+  }
+  public void links() {
+    körper.setDirection(270);
+    körper.move(5);
+  }
+  public void hoch(){
+    körper.setDirection(0);
+    körper.move(5);
+  }
+  public void runter(){
+    körper.setDirection(180);
+    körper.move(5);
+  }    
+    
+}

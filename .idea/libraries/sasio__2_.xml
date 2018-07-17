@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="sasio (2)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sasio.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

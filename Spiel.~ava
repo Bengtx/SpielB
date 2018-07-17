@@ -1,0 +1,123 @@
+import sas.*;
+import sasio.*;
+import java.awt.Color;
+
+
+
+//Hintergrund
+//Hauptmenue mit Animation
+//Attacken
+
+
+
+public class Spiel {
+  
+  
+  
+  
+  
+  
+  public static void main(String[] args) {
+    
+     
+    View fenster = new View(1000, 1000, "Spiel");
+    Button press = new Button(250,250,500,200,Color.black,"Click to Play");
+    
+    
+    while (true) { 
+      if (!press.clickValue().equals("")) {
+        fenster.remove(press);
+        break;  
+      } // end of if
+    } // end of while
+    Spieler spieler1= new Spieler(1,100,100,0);
+    Spieler spieler2 = new Spieler(2,900,900,200);
+    Spieler winner = null;
+    
+    
+    
+    
+    
+    
+    while (winner == null)  {
+      spieler1.handleHit();
+      spieler1.handleCollision(spieler2);
+      if (spieler1.getLifes() <= 0) {
+        winner = spieler2;
+        Picture gameover1 = new Picture(340,340,300,300,"player 2 win.png");
+      } // end of if
+      if (spieler2.getLifes() <= 0) {
+        winner = spieler1;
+        Picture gameover2 = new Picture(340,340,300,300,"player 1 win.png");
+      } // end of if
+      
+      
+      // Spieler 1
+      if (fenster.keyPressed('d')==true && spieler1.getKoerper().getShapeX()<980) {
+        spieler1.rechts();
+      }           
+      if (fenster.keyPressed('a')==true && spieler1.getKoerper().getShapeX()>0) {
+        spieler1.links();
+      }
+      if (fenster.keyPressed('w')==true && spieler1.getKoerper().getShapeY()>0) {
+        spieler1.hoch();
+      }
+      if (fenster.keyPressed('s')==true && spieler1.getKoerper().getShapeY()<940) {
+        spieler1.runter();  
+      } 
+      if (fenster.keyPressed(' ')==true) {
+        spieler1.fire() ;
+        
+      }
+      
+      
+      
+      // Spieler 2
+      spieler2.handleHit();
+      spieler2.handleCollision(spieler1);
+      if (spieler2.getLifes() <= 0) {
+        winner = spieler1;
+        
+      } // end of if
+      
+      fenster.wait(10);
+      if (fenster.keyRightPressed()==true && spieler2.getKoerper().getShapeX()<980) {
+        spieler2.rechts();
+      }           
+      if (fenster.keyLeftPressed()==true && spieler2.getKoerper().getShapeX()>0) {
+        spieler2.links();
+      }
+      if (fenster.keyUpPressed()==true && spieler2.getKoerper().getShapeY()>0) {
+        spieler2.hoch();
+      }
+      if (fenster.keyDownPressed()==true && spieler2.getKoerper().getShapeY()<940) {
+        spieler2.runter();
+        
+      } 
+      
+      
+      if (fenster.keyPressed('-')==true) {
+        spieler2.fire();
+        
+        
+        
+      } 
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    }    
+    
+    
+  }
+  
+  
+}
+  
+  

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="sas (2)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sas.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
